@@ -1,0 +1,15 @@
+#main-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+#keyboard-container {
+  flex: 3;
+}
+
+#input-display-container {
+  flex: 4;
+  background-color: #e0edf1;
+}
