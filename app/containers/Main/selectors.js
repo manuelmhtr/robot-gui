@@ -18,7 +18,15 @@ const selectMainDomain = state => state.get('main', initialState);
 const makeSelectCode = () =>
   createSelector(selectMainDomain, substate => substate.toJS().code);
 
+const makeSelectExpectedCode = () =>
+  createSelector(selectMainDomain, substate => substate.toJS().expectedCode);
+
 const makeSelectMaxCodeLength = () =>
   createSelector(selectMainDomain, substate => substate.toJS().maxCodeLength);
 
-export { selectMainDomain, makeSelectCode, makeSelectMaxCodeLength };
+export {
+  selectMainDomain,
+  makeSelectCode,
+  makeSelectMaxCodeLength,
+  makeSelectExpectedCode,
+};

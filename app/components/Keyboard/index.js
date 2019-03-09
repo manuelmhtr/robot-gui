@@ -7,6 +7,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { faBackspace } from '@fortawesome/free-solid-svg-icons';
+
+import Key from '../Key';
 
 const KeyboardContainer = styled.div`
   height: 100%;
@@ -21,8 +24,6 @@ const KeysRow = styled.div`
   align-items: stretch;
   align-content: stretch;
 `;
-
-import Key from '../Key';
 
 /* eslint-disable react/prefer-stateless-function */
 class Keyboard extends React.Component {
@@ -49,7 +50,7 @@ class Keyboard extends React.Component {
         <KeysRow>
           <Key onPress={onKeyPress} value="" />
           <Key onPress={onKeyPress} value="0" />
-          <Key onPress={onKeyPress} value="<" />
+          <Key onPress={onKeyPress} value="<" icon={faBackspace} />
         </KeysRow>
       </KeyboardContainer>
     );

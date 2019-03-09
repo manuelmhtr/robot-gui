@@ -7,6 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const KeyContainer = styled.div`
   border: 1px solid #ccc;
@@ -28,13 +29,24 @@ const KeyContainer = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 class Key extends React.Component {
+  getContent() {
+    const { value, icon } = this.props;
+    if (!icon) return value;
+    return <FontAwesomeIcon icon={icon} />;
+  }
+
   render() {
     const { value, onPress } = this.props;
-    return <KeyContainer onClick={() => onPress(value)}>{value}</KeyContainer>;
+    return (
+      <KeyContainer onClick={() => onPress(value)}>
+        {this.getContent()}
+      </KeyContainer>
+    );
   }
 }
 
 Key.propTypes = {
+  icon: PropTypes.object,
   value: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
 };

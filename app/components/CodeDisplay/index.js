@@ -35,12 +35,12 @@ function getText(code, maxLength) {
 }
 
 function repeatChar(char, times) {
-  return Array.apply(null, Array(Math.max(0, times))).reduce(str => `${str}${char}`, '');
+  return Array(...Array(Math.max(0, times))).reduce(str => `${str}${char}`, '');
 }
 
 CodeDisplay.propTypes = {
   code: PropTypes.string.isRequired,
-  maxLength: PropTypes.string.isRequired,
+  maxLength: PropTypes.number.isRequired,
 };
 
 export default CodeDisplay;
